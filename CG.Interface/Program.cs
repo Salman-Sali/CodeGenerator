@@ -17,3 +17,7 @@ var queryNameSpace = Console.ReadLine();
 
 var generator = new CodeGenerator<User>(commandPath, commandNameSpace, queryPath, queryNameSpace);
 generator.Generate();
+
+
+var generator2 = new CodeGenerator<Book>(commandPath, commandNameSpace, queryPath, queryNameSpace);
+generator2.Generate();

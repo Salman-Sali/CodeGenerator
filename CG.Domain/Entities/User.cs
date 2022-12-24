@@ -10,6 +10,7 @@ namespace CG.Domain.Entities
     [PluralAttribute("Users")]
     public class User : Entity<int>
     {
+        [PrimaryKeyAttribute]
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
