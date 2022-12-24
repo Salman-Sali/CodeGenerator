@@ -57,6 +57,7 @@ namespace CG.CqrsCrud.Generators
             commandHandler.Add("}");
             File.WriteAllLines($"{commandPath}\\Add{typeof(T).Name}Command.Handler.cs", commandHandler);
 
+            File.WriteAllLines($"{commandPath}\\Add{typeof(T).Name}Command.Validator.cs", ValidationGenerator<T>.Generate(commandNameSpace, "Add"));
             return true;
         }
     }
