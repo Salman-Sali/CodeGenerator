@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿ using System.Reflection;
 
 namespace CG.CqrsCrud.Generators
 {
@@ -47,12 +47,18 @@ namespace CG.CqrsCrud.Generators
         private static List<string> StringRule(PropertyInfo prop)
         {
             List<string> validations = new List<string>();
+            validationns.Add($"\tRuleFor(x=>x.{prop.Name}");
+            validations.Add($"\t\t.NotEmpty()");
+            validations.Add($"\t\t.MaximumLength()");
+            validations.Add($"\t\t.MinimumLength();");
             return validations;
         }
 
         private static List<string> NumericRule(PropertyInfo prop)
         {
             List<string> validations = new List<string>();
+            validationns.Add($"\tRuleFor(x=>x.{prop.Name}");
+            validations.Add($"\t\t.GreaterThan(0);");
             return validations;
         }
     }
