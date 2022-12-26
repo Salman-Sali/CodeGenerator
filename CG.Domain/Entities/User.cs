@@ -1,13 +1,16 @@
 ﻿using CG.CqrsCrud.Attributes.Commons;
 using CG.CqrsCrud.Attributes.MediatorAttributes;
 using CG.CqrsCrud.Attributes.MediatorAttributes.Commands;
+using CG.CqrsCrud.Attributes.MediatorAttributes.Queries;
 
 namespace CG.Domain.Entities
 {
     [AddMediator]
     [UpdateMediator]
     [DeleteMediator]
-    [PluralAttribute("Users")]
+    [GetMediator]
+    [GetListMediator]
+    [Plural("Users")]
     public class User : Entity<int>
     {
         [PrimaryKeyAttribute]
