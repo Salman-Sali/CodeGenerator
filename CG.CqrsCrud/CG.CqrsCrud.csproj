@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Attributes\FluentValidator\" />
-    <Folder Include="Commands\" />
   </ItemGroup>
 
 </Project>

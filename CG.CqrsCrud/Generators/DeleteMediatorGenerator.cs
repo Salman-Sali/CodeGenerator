@@ -51,7 +51,8 @@ namespace CG.CqrsCrud.Generators
             commandHandler.Add("\t}");
             commandHandler.Add("}");
             File.WriteAllLines($"{commandPath}\\Delete{typeof(T).Name}Command.Handler.cs", commandHandler);
-            File.WriteAllLines($"{commandPath}\\Delete{typeof(T).Name}Command.Validator.cs", ValidationGenerator<T>.Generate(commandNameSpace, "Delete"));
+            File.WriteAllLines($"{commandPath}\\Delete{typeof(T).Name}Command.Validator.cs", ValidationGenerator<T>
+                .Generate(commandNameSpace, "Delete", typeof(T).GetProperties().Where(x => x.SetMethod != null && x.GetCustomAttributes().Where(a => a is PrimaryKeyAttribute).Any()).ToList()));
             return true;
         }
     }
