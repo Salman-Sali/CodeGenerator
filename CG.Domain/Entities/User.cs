@@ -5,18 +5,19 @@ using CG.CqrsCrud.Attributes.MediatorAttributes.Queries;
 
 namespace CG.Domain.Entities
 {
-    [AddMediator]
-    [UpdateMediator]
-    [DeleteMediator]
     [GetMediator]
     [GetListMediator]
-    [Plural("Users")]
     public class User : Entity<int>
     {
         [PrimaryKeyAttribute]
         public int UserId { get; set; }
-        public string UserName { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
-        public string? Email { get; set; }
+        public UserRole UserRole { get; set; }
+    }
+
+    public enum UserRole
+    {
+        Admin
     }
 }

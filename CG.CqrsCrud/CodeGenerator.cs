@@ -1,5 +1,6 @@
 ﻿using CG.CqrsCrud.Attributes.Commons;
 using CG.CqrsCrud.Attributes.MediatorAttributes.Commands;
+using CG.CqrsCrud.Attributes.MediatorAttributes.Queries;
 using CG.CqrsCrud.Generators;
 using System.IO;
 using System.Reflection;
@@ -59,6 +60,16 @@ namespace CG.CqrsCrud
             if (attrs.Where(x => x is DeleteMediator).Any())
             {
                 DeleteMediatorGenerator<T>.GenerateDeleteMediator(plural, commandNameSpace, commandPath);
+            }
+
+            if (attrs.Where(x => x is GetMediator).Any())
+            {
+                GetMediatorGenerator<T>.GenerateGetMediator(plural, queryPathNameSpace, queryPath);
+            }
+
+            if (attrs.Where(x => x is GetListMediator).Any())
+            {
+                GetListMediatorGenerator<T>.GenerateGetListMediator(plural, queryPathNameSpace, queryPath);
             }
 
             return true;

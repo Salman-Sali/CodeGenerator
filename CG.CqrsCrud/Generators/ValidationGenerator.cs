@@ -12,9 +12,9 @@ namespace CG.CqrsCrud.Generators
             validations.Add("");
             validations.Add($"namespace {nameSpace}.{typeof(T).Name};");
             validations.Add("");
-            validations.Add($"public class {operation}{typeof(T).Name}Command : AbstractValidator<{operation}{typeof(T).Name}Command>");
+            validations.Add($"public class {operation}{typeof(T).Name}CommandValidator : AbstractValidator<{operation}{typeof(T).Name}Command>");
             validations.Add("{");
-            validations.Add($"\tpublic {operation}{typeof(T).Name}Command()");
+            validations.Add($"\tpublic {operation}{typeof(T).Name}CommandValidator()");
             validations.Add("\t{");
             foreach (var prop in props)
             {
