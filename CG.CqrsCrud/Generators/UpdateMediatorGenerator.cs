@@ -74,7 +74,7 @@ namespace CG.CqrsCrud.Generators
             commandHandler.Add("}");
             File.WriteAllLines($"{commandPath}\\Update{typeof(T).Name}Command.Handler.cs", commandHandler);
             File.WriteAllLines($"{commandPath}\\Update{typeof(T).Name}Command.Validator.cs", ValidationGenerator<T>
-                .Generate(commandNameSpace, "Update", typeof(T).GetProperties().Where(x => x.SetMethod != null).ToList()));
+                .Generate(plural, commandNameSpace, "Update", typeof(T).GetProperties().Where(x => x.SetMethod != null).ToList()));
 
             return true;
         }

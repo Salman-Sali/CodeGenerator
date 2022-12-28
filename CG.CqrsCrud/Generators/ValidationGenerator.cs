@@ -4,13 +4,13 @@ namespace CG.CqrsCrud.Generators
 {
     public static class ValidationGenerator<T>
     {
-        public static List<string> Generate(string nameSpace, string operation, List<PropertyInfo> props)
+        public static List<string> Generate(string plural, string nameSpace, string operation, List<PropertyInfo> props)
         {
             List<string> validations = new List<string>();
             validations.Add("using MediatR;");
             validations.Add("using FluentValidation;");
             validations.Add("");
-            validations.Add($"namespace {nameSpace}.{typeof(T).Name};");
+            validations.Add($"namespace {nameSpace}.{plural};");
             validations.Add("");
             validations.Add($"public class {operation}{typeof(T).Name}CommandValidator : AbstractValidator<{operation}{typeof(T).Name}Command>");
             validations.Add("{");
@@ -49,8 +49,8 @@ namespace CG.CqrsCrud.Generators
             List<string> validations = new List<string>();
             validations.Add($"\t\tRuleFor(x=>x.{prop.Name})");
             validations.Add($"\t\t\t.NotEmpty()");
-            validations.Add($"\t\t\t.MaximumLength()");
-            validations.Add($"\t\t\t.MinimumLength();");
+            validations.Add($"\t\t\t.MinimumLength()");
+            validations.Add($"\t\t\t.MaximumLength();");
             return validations;
         }
 
